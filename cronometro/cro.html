@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cronômetro</title>
+<link rel="stylesheet" href="./cro.css">
+</head>
+<img src="./meu dono.png" alt="">
+<body>
+ <h3>Cronômetro do Cauãzinho</h3>
+ <p>Tempo: <span id="tempo">0</span> segundos</p>
+ <button onclick="iniciarCronometro()">Iniciar</button>
+ <button onclick="pararCronometro()">Parar</button>
+ <button onclick="resetarCronometro()">Resetar</button>
+ <script>
+ let tempo = 0;
+ let intervalo;
+
+ function iniciarCronometro() {
+     // Verifica se o cronômetro já está rodando (intervalo existe)
+     if (!intervalo) {
+         intervalo = setInterval(() => {
+             tempo++;
+             document.getElementById('tempo').textContent = tempo;
+         }, 1000);
+     }
+ }
+
+ function pararCronometro() {
+     // Só limpa o intervalo se ele estiver em execução
+     if (intervalo) {
+         clearInterval(intervalo);
+         intervalo = null;  // Limpa a referência do intervalo
+     }
+ }
+
+ function resetarCronometro() {
+     tempo = 0;
+     document.getElementById('tempo').textContent = tempo;
+     // Para o cronômetro, se estiver rodando
+     if (intervalo) {
+         clearInterval(intervalo);
+         intervalo = null;  // Limpa a referência do intervalo
+     }
+ }
+ </script>
+</body>
+</html>

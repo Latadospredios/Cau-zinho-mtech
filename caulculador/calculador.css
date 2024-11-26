@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+background-color: whitesmoke
+}
+h3{
+    color: rgb(0, 0, 0);
+}
+h4{
+    color:black;
+}
+label{
+    color: rgb(0, 0, 0);
+}
+button{
+    color: rgb(0, 0, 0);
+}
+input{
+    color: rgb(0, 0, 0);
+}
+img{
+    width: 250px;
+    height: 150px;
+}

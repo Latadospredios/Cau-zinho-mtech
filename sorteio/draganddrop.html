@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item-tarefa { padding: 10px; margin: 10px; background-color:aqua; cursor: grab; }
+     </style>
+     <link rel="stylesheet" href="./draganddrop.css">
+
+</head>
+<body>
+       
+        <h3>Lista de Tarefas</h3>
+        <input type="text" id="novaTarefa" placeholder="Nova Tarefa">
+        <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+        <div>
+            <div id="listaTarefas" ondrop="soltar(event)" ondragover="permitirSoltar(event)"></div>
+        </div>
+        
+        
+    <script>
+            
+        function permitirSoltar(event) {
+        event.preventDefault();
+         }
+           
+      function arrastar(event) {
+      event.dataTransfer.setData("text", event.target.id);
+        }
+            
+        function soltar(event) {
+        event.preventDefault();
+        const dados = event.dataTransfer.getData("text");
+       event.target.appendChild(document.getElementById(dados));
+       }
+            
+     function adicionarTarefa() {
+       const textoTarefa = document.getElementById('novaTarefa').value;
+       if (textoTarefa) {
+          const tarefa = document.createElement('div');
+                tarefa.id = `tarefa-${Date.now()}`;
+                tarefa.className = 'item-tarefa';
+                tarefa.draggable = true;
+                tarefa.ondragstart = arrastar;
+                tarefa.textContent = textoTarefa;
+                document.getElementById('listaTarefas').appendChild(tarefa);
+                document.getElementById('novaTarefa').value = '';
+           
+            }
+            }
+            </script>
+    
+    
+       
+    
+
+
+</body>
+</html>

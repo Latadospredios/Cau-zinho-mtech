@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Formulário de Cadastro</title>
+</head>
+<body>
+ <link rel="stylesheet" href="./formulario.css">
+<img src="./dio.jpg" alt="">
+
+ <h3>Formulário de Cadastro</h3>
+ <form onsubmit="return validarFormulario()">
+ <label>Nome: <input type="text" id="nome"></label><br><br>
+ <label>Email: <input type="email" id="email"></label><br><br>
+ <label>Senha: <input type="password" id="senha"></label><br><br>
+ <button type="submit">Enviar</button>
+ </form>
+ <p id="mensagemErro" style="color: red;"></p>
+ <script>
+ function validarFormulario() {
+ const nome = document.getElementById('nome').value;
+ const email = document.getElementById('email').value;
+ const senha = document.getElementById('senha').value;
+ const mensagemErro = document.getElementById('mensagemErro');
+ mensagemErro.textContent = ''; 
+ if (!nome) {
+ mensagemErro.textContent = 'Por favor, insira seu nome.';
+ return false;
+ }
+ if (!email) {
+ mensagemErro.textContent = 'Por favor, insira seu email.';
+ return false;
+ }
+ if (!senha || senha.length < 6) {
+ mensagemErro.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+ return false;
+ }
+ alert('Formulário enviado com sucesso!');
+ return true;
+ }
+ </script>
+</body>
+</html>

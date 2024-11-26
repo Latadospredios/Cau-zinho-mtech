@@ -1,0 +1,12 @@
+body{
+    background-color: whitesmoke; 
+    color: red;
+    text-align: center;
+}
+button{
+    color: red;
+}
+img{
+    width: 500px;
+    height: 250px;
+}
